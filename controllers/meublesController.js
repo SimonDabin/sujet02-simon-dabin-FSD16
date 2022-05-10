@@ -4,12 +4,12 @@ import ObjectID from 'mongoose';
 const router = express.Router()
 
 //tout les meubles
-router.get('/all-meubles', (req, res) => {
+export const getAll = (req, res) => {
  MeubleModel.find((err, docs) => {
    if (!err) res.send(docs);
    else console.log('Erro to get data: ' + err);
   })
-})
+}
 
 //ajout d'un meuble
 router.post('/new-meuble', (req, res) => {
@@ -24,7 +24,6 @@ newRecord.save( (err, docs) => {
   else console.log('error creating new data: ' + err);
 })
 })
-
 
 //modifier
 router.put('/update-meuble/:id', (req, res) => {

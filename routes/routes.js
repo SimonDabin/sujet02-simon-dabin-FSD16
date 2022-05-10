@@ -1,8 +1,25 @@
 import express from "express";
-import MeublesController from "../controllers/meublesController";
 const router = express.Router();
 
-router.get("/meubles", MeublesController);
+import HomeController from '../controllers/homeController.js'
+import allMeublesController from "../controllers/allMeubleController.js";
+import formMeubleController from "../controllers/formMeubleController.js";
+import newMeublesController from "../controllers/newMeubleController.js";
+import updateMeublesController from "../controllers/updateMeubleController.js";
+import deleteMeublesController from "../controllers/deleteMeubleController.js";
+
+
+router.get("/", HomeController);
+
+router.get("/meubles", allMeublesController);
+
+router.get('/formMeuble', formMeubleController);
+
+router.post('/new-meuble', newMeublesController);
+
+router.put('update-meuble/:id', updateMeublesController);
+
+router.delete('/remove-meuble/:id', deleteMeublesController);
 
 
 export default router;

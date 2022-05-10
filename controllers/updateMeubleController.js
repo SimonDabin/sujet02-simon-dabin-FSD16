@@ -1,0 +1,22 @@
+import MeubleModel from '../models/meublesModel.js'
+
+export default (req, res) => {
+    if(ObjectID.isValidObjectId())
+    return res.status(400).send('ID unknow: ' + req.params.id)
+  
+    const updateRecord = {
+      name: req.body.name,
+      category: req.body.category,
+      quantity: req.body.quantity  
+    }
+  
+    MeubleModel.findByIdAndUpdate(
+      req.params.id,
+      { $set: updateRecord },
+      { new: true },
+      (err, docs) => {
+        if(!err) res.send(docs);
+        else console.log('update error: ' + err);
+      }
+    )
+  }

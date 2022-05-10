@@ -1,0 +1,17 @@
+<%- include('../views/partials/header.ejs') -%>
+<form action="/new-meuble" method="post">
+    <p>
+        <label for="name">Nom du meuble</label>
+        <input type="text" id="name" name="name" value=""/>
+    </p>
+    <p>
+        <label for="category">Catégorie</label>
+        <input type="text" id="category" name="category" value=""/>
+    </p>
+    <p>
+        <label for="quantity">Quantité</label>
+        <input type="number" id="quantity" name="quantity" value=""/>
+    </p>
+    <p><input type="submit" value="Envoyer"/></p>
+</form>
+    <%- include('../views/partials/footer.ejs') -%>
