@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const meubleModel = mongoose.model(
+const MeubleModel = mongoose.model(
     "fabricant-meuble",
     {
         name: {
@@ -14,9 +14,13 @@ const meubleModel = mongoose.model(
         quantity: {
             type: Number,
             required: true
+        },
+        date: {
+            type: Date,
+            default: Date.now
         }
     },
     "meubles"
 )
 
-export default { meubleModel }
+export default MeubleModel 

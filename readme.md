@@ -2,8 +2,8 @@
 
 ## Technologies utilisées :
 - NodeJS 
-- MySQL 
-- ejs
+- mongoDB 
+- ejs ou pug
 
 ### 1 - création de la base de donnée en SQL
 - table meuble :
