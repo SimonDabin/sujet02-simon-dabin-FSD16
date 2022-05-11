@@ -1,26 +1,26 @@
 import mongoose from 'mongoose';
+const { Schema, model } = mongoose;
 
-const MeubleModel = mongoose.model(
-    "fabricant-meuble",
-    {
-        name: {
-            type: String,
-            required: true
-        },
-        category: {
-            type: String,
-            required: true
-        },
-        quantity: {
-            type: Number,
-            required: true
-        },
-        date: {
-            type: Date,
-            default: Date.now
-        }
+const FurnitureSchema = new Schema({
+    name: {
+        type: String,
+        required: true
     },
-    "meubles"
-)
+    category: {
+        type: String,
+        required: true
+    },
+    quantity: {
+        type: Number,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    }
+});
 
-export default MeubleModel 
+const FurnitureModel = model('meubles', FurnitureSchema)
+   
+
+export default FurnitureModel; 

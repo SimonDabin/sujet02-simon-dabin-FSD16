@@ -1,11 +1,11 @@
-import MeubleModel from '../models/meublesModel.js';
+import FurnitureModel from '../models/meublesModel.js';
 import express from 'express';
 import ObjectID from 'mongoose';
 const router = express.Router()
 
 //tout les meubles
 export const getAll = (req, res) => {
- MeubleModel.find((err, docs) => {
+  FurnitureModel.find((err, docs) => {
    if (!err) res.send(docs);
    else console.log('Erro to get data: ' + err);
   })
@@ -13,7 +13,7 @@ export const getAll = (req, res) => {
 
 //ajout d'un meuble
 router.post('/new-meuble', (req, res) => {
-  const newRecord = new MeubleModel({
+  const newRecord = new FurnitureModel({
     name: req.body.name,
     category: req.body.category,
     quantity: req.body.quantity

@@ -4,8 +4,10 @@ import express from 'express';
 import route from "./routes/routes.js";
 import cors from 'cors';
 import bodyParser from 'body-parser';
-
+import mongoConnect from './models/dbconfig.js'
 const app = express();
+
+mongoConnect();
 
 app.use(express.json())
 app.set('view engine', 'ejs'); 

@@ -1,25 +1,21 @@
-import MeubleModel from '../models/meublesModel.js'
+import FurnitureModel from '../models/meublesModel.js';
 
 export default (req, res) => {
-  const { name, category, quantity } = req.body
+  const { name, category, quantity } = req.body;
+
   if(name != '' && category != '' && !isNaN(parseFloat(quantity)) ){
-    const newRecord = new MeubleModel({
+    const furniture= new FurnitureModel({
       name: req.body.name,
       category: req.body.category,
       quantity: req.body.quantity
     })
-      newRecord.save( (err, docs) => {
+      furniture.save( (err) => {
         if(err) {
           console.log(err);
           res.render('formMeuble', {error:true} )
-          return ;
+          return;
         }
-        res.redirect('formMeuble')
-        console.log('donnée enregistrée');
+        res.redirect('formMeuble');
       })
-      console.log(req.body);
-      console.log(name != '' && category != '' && !isNaN(parseFloat(quantity)));
   }
-
-  
 }
